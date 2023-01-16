@@ -30,7 +30,7 @@ Base.:*(x::Dual, a::Number) = Dual(x.real*a , x.dual*a)
 #  epsilon^2 = 0
 #   x * y = a*c + epsilon * (a*d + b*c)
 
-Base.:*{x::Dual, y::Dual} = Dual(x.real * y.real , x.real * y.dual + x.dual * y.real)
+Base.:*(x::Dual, y::Dual) = Dual(x.real * y.real , x.real * y.dual + x.dual * y.real)
 
 #  Conjugate
 Base.conj(x::Dual) = Dual(x.real , -x.dual)
